@@ -73,27 +73,24 @@
                                                 </ul>
                     
                     <ul id="tocify-header-2" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="endpoints">
-                    <a href="#endpoints">Endpoints</a>
+                <li class="tocify-item level-1" data-unique="movies">
+                    <a href="#movies">Movies</a>
                 </li>
-                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-user">
-                        <a href="#endpoints-GETapi-user">GET api/user</a>
+                                    <ul id="tocify-subheader-movies" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="movies-GETapi-movies">
+                        <a href="#movies-GETapi-movies">Display a listing of the resource.</a>
                     </li>
-                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-movies">
-                        <a href="#endpoints-GETapi-movies">Display a listing of the resource.</a>
+                                    <li class="tocify-item level-2" data-unique="movies-POSTapi-movies">
+                        <a href="#movies-POSTapi-movies">Store a newly created resource in storage.</a>
                     </li>
-                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-movies">
-                        <a href="#endpoints-POSTapi-movies">Store a newly created resource in storage.</a>
+                                    <li class="tocify-item level-2" data-unique="movies-GETapi-movies--id-">
+                        <a href="#movies-GETapi-movies--id-">Display the specified resource.</a>
                     </li>
-                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-movies--id-">
-                        <a href="#endpoints-GETapi-movies--id-">Display the specified resource.</a>
+                                    <li class="tocify-item level-2" data-unique="movies-PUTapi-movies--id-">
+                        <a href="#movies-PUTapi-movies--id-">Update the specified resource in storage.</a>
                     </li>
-                                    <li class="tocify-item level-2" data-unique="endpoints-PUTapi-movies--id-">
-                        <a href="#endpoints-PUTapi-movies--id-">Update the specified resource in storage.</a>
-                    </li>
-                                    <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-movies--id-">
-                        <a href="#endpoints-DELETEapi-movies--id-">Remove the specified resource from storage.</a>
+                                    <li class="tocify-item level-2" data-unique="movies-DELETEapi-movies--id-">
+                        <a href="#movies-DELETEapi-movies--id-">Remove the specified resource from storage.</a>
                     </li>
                                                     </ul>
                             </ul>
@@ -106,7 +103,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: March 10 2022</li>
+        <li>Last updated: March 11 2022</li>
     </ul>
 </div>
 
@@ -127,133 +124,11 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can get your token by visiting /user/api-tokens  and <b>Create API token</b>.</p>
 
-        <h1 id="endpoints">Endpoints</h1>
+        <h1 id="movies">Movies</h1>
 
-    
+    <p>APIs for managing movies</p>
 
-            <h2 id="endpoints-GETapi-user">GET api/user</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-GETapi-user">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://api-movie.test/api/user" \
-    --header "Authorization: Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://api-movie.test/api/user"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-
-<div class="php-example">
-    <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$response = $client-&gt;get(
-    'http://api-movie.test/api/user',
-    [
-        'headers' =&gt; [
-            'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
-            'Content-Type' =&gt; 'application/json',
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-user">
-            <blockquote>
-            <p>Example response (401):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary>
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre>
-        </details>         <pre>
-
-<code class="language-json">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-user" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-user"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-user"></code></pre>
-</span>
-<span id="execution-error-GETapi-user" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-user"></code></pre>
-</span>
-<form id="form-GETapi-user" data-method="GET"
-      data-path="api/user"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Authorization":"Bearer {YOUR_TOKEN}","Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-user', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-user"
-                    onclick="tryItOut('GETapi-user');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-user"
-                    onclick="cancelTryOut('GETapi-user');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-user" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/user</code></b>
-        </p>
-                <p>
-            <label id="auth-GETapi-user" hidden>Authorization header:
-                <b><code>Bearer </code></b><input type="text"
-                                                                name="Authorization"
-                                                                data-prefix="Bearer "
-                                                                data-endpoint="GETapi-user"
-                                                                data-component="header"></label>
-        </p>
-                </form>
-
-            <h2 id="endpoints-GETapi-movies">Display a listing of the resource.</h2>
+            <h2 id="movies-GETapi-movies">Display a listing of the resource.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -394,7 +269,7 @@ access-control-allow-origin: *
         </p>
                 </form>
 
-            <h2 id="endpoints-POSTapi-movies">Store a newly created resource in storage.</h2>
+            <h2 id="movies-POSTapi-movies">Store a newly created resource in storage.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -411,7 +286,14 @@ access-control-allow-origin: *
     "http://api-movie.test/api/movies" \
     --header "Authorization: Bearer {YOUR_TOKEN}" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"Star Wars\",
+    \"description\": \"La guerre des étoiles\",
+    \"date\": \"10\\/02\\/1989\",
+    \"note\": \"5\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -425,9 +307,17 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "Star Wars",
+    "description": "La guerre des étoiles",
+    "date": "10\/02\/1989",
+    "note": "5"
+};
+
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 
@@ -440,6 +330,12 @@ $response = $client-&gt;post(
             'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'Star Wars',
+            'description' =&gt; 'La guerre des étoiles',
+            'date' =&gt; '10/02/1989',
+            'note' =&gt; '5',
         ],
     ]
 );
@@ -497,9 +393,50 @@ print_r(json_decode((string) $body));</code></pre></div>
                                                                 data-endpoint="POSTapi-movies"
                                                                 data-component="header"></label>
         </p>
-                </form>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTapi-movies"
+               value="Star Wars"
+               data-component="body" hidden>
+    <br>
 
-            <h2 id="endpoints-GETapi-movies--id-">Display the specified resource.</h2>
+        </p>
+                <p>
+            <b><code>description</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="description"
+               data-endpoint="POSTapi-movies"
+               value="La guerre des étoiles"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>date</code></b>&nbsp;&nbsp;<small>date</small>  &nbsp;
+                <input type="text"
+               name="date"
+               data-endpoint="POSTapi-movies"
+               value="10/02/1989"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>note</code></b>&nbsp;&nbsp;<small>smallInt</small>  &nbsp;
+                <input type="text"
+               name="note"
+               data-endpoint="POSTapi-movies"
+               value="5"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+            <h2 id="movies-GETapi-movies--id-">Display the specified resource.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -640,7 +577,7 @@ access-control-allow-origin: *
             </p>
                     </form>
 
-            <h2 id="endpoints-PUTapi-movies--id-">Update the specified resource in storage.</h2>
+            <h2 id="movies-PUTapi-movies--id-">Update the specified resource in storage.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -657,7 +594,14 @@ access-control-allow-origin: *
     "http://api-movie.test/api/movies/12" \
     --header "Authorization: Bearer {YOUR_TOKEN}" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"Star Wars\",
+    \"description\": \"La guerre des étoiles\",
+    \"date\": \"10\\/02\\/1989\",
+    \"note\": \"5\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -671,9 +615,17 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "Star Wars",
+    "description": "La guerre des étoiles",
+    "date": "10\/02\/1989",
+    "note": "5"
+};
+
 fetch(url, {
     method: "PUT",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 
@@ -686,6 +638,12 @@ $response = $client-&gt;put(
             'Authorization' =&gt; 'Bearer {YOUR_TOKEN}',
             'Content-Type' =&gt; 'application/json',
             'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'name' =&gt; 'Star Wars',
+            'description' =&gt; 'La guerre des étoiles',
+            'date' =&gt; '10/02/1989',
+            'note' =&gt; '5',
         ],
     ]
 );
@@ -758,9 +716,50 @@ print_r(json_decode((string) $body));</code></pre></div>
     <br>
 <p>The ID of the movie.</p>
             </p>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="PUTapi-movies--id-"
+               value="Star Wars"
+               data-component="body" hidden>
+    <br>
 
-            <h2 id="endpoints-DELETEapi-movies--id-">Remove the specified resource from storage.</h2>
+        </p>
+                <p>
+            <b><code>description</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="description"
+               data-endpoint="PUTapi-movies--id-"
+               value="La guerre des étoiles"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>date</code></b>&nbsp;&nbsp;<small>date</small>  &nbsp;
+                <input type="text"
+               name="date"
+               data-endpoint="PUTapi-movies--id-"
+               value="10/02/1989"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>note</code></b>&nbsp;&nbsp;<small>smallInt</small>  &nbsp;
+                <input type="text"
+               name="note"
+               data-endpoint="PUTapi-movies--id-"
+               value="5"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+            <h2 id="movies-DELETEapi-movies--id-">Remove the specified resource from storage.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>

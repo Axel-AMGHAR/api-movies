@@ -1,32 +1,8 @@
-name: Endpoints
-description: ''
+name: Movies
+description: |-
+
+  APIs for managing movies
 endpoints:
-  -
-    httpMethods:
-      - GET
-    uri: api/user
-    metadata:
-      title: ''
-      description: ''
-      authenticated: true
-      custom: []
-    headers:
-      Authorization: 'Bearer {YOUR_TOKEN}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    queryParameters: []
-    bodyParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
   -
     httpMethods:
       - GET
@@ -70,7 +46,35 @@ endpoints:
       Accept: application/json
     urlParameters: []
     queryParameters: []
-    bodyParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: 'Star Wars'
+        type: string
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: true
+        example: 'La guerre des étoiles'
+        type: string
+        custom: []
+      date:
+        name: date
+        description: ''
+        required: true
+        example: 10/02/1989
+        type: date
+        custom: []
+      note:
+        name: note
+        description: ''
+        required: true
+        example: '5'
+        type: smallInt
+        custom: []
     responses: []
     responseFields: []
   -
@@ -131,7 +135,35 @@ endpoints:
         type: integer
         custom: []
     queryParameters: []
-    bodyParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: 'Star Wars'
+        type: string
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: true
+        example: 'La guerre des étoiles'
+        type: string
+        custom: []
+      date:
+        name: date
+        description: ''
+        required: true
+        example: 10/02/1989
+        type: date
+        custom: []
+      note:
+        name: note
+        description: ''
+        required: true
+        example: '5'
+        type: smallInt
+        custom: []
     responses: []
     responseFields: []
   -

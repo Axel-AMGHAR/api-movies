@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Movie;
 use Illuminate\Http\Request;
 
+/**
+ * @group Movies
+ *
+ * APIs for managing movies
+ */
 class MoviesController extends Controller
 {
     public function validateRequest($request)
@@ -31,6 +36,11 @@ class MoviesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     * @bodyParam name string required Example: Star Wars
+     * @bodyParam description string required Example: La guerre des étoiles
+     * @bodyParam date date required Example: 10/02/1989
+     * @bodyParam note smallInt required Example: 5
+     *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -43,7 +53,7 @@ class MoviesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id Example: 1
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -53,6 +63,11 @@ class MoviesController extends Controller
 
     /**
      * Update the specified resource in storage.
+     *
+     * @bodyParam name string required Example: Star Wars
+     * @bodyParam description string required Example: La guerre des étoiles
+     * @bodyParam date date required Example: 10/02/1989
+     * @bodyParam note smallInt required Example: 5
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
