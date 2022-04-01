@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
  *
  * APIs for managing movies
  */
-class MoviesController extends Controller
+class MovieController extends Controller
 {
     public function validateRequest($request)
     {
@@ -19,18 +19,24 @@ class MoviesController extends Controller
             'name' => 'required|max:128',
             'description' => 'required|max:2048',
             'date' => 'required|date',
-            'note' => 'required|between:1,5'
+            'note' => 'required|between:1,5',
+            'categories_ids' => 'required|array',
+            'categories_ids.*' => 'exists:App\Models\Category,id'
         ]);
     }
 
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
     public function index()
     {
-        return Movie::all();
+        return Movie::with('categories')->when(request()->has('name'), function ($query) {
+            $query->where('name', 'like', '%'.request()->query('name').'%');
+        })->when(request()->has('description'), function ($query) {
+            $query->where('description', 'like', '%'.request()->query('description').'%');
+        })->paginate(5);
     }
 
     /**
@@ -47,18 +53,20 @@ class MoviesController extends Controller
     public function store(Request $request)
     {
         $this->validateRequest($request);
-        return Movie::create($request->all());
+        $movie = Movie::create($request->all());
+        $movie->categories()->attach($request->input('categories_ids'));
+        return $movie;
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id Example: 1
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model
      */
     public function show($id)
     {
-        return Movie::find($id);
+        return Movie::with('categories')->find($id) ?? abort(404);
     }
 
     /**
@@ -78,6 +86,7 @@ class MoviesController extends Controller
         $this->validateRequest($request);
         $movie = Movie::find($id);
         $movie->update($request->all());
+        $movie->categories()->sync($request->input('categories_ids'));
         return $movie;
     }
 

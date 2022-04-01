@@ -18,6 +18,17 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 });*/
 
-Route::apiResources([
-    'movies' => \App\Http\Controllers\Api\MoviesController::class,
-]);
+//Route::prefix('movies')->controller(MoviesController::class)->group(function () {
+//    Route::match(['get', 'head'],'{}', 'index');
+//    Route::post('', 'store');
+//    Route::match(['put', 'patch'], '{id}', 'update');
+//    Route::get('{id}', 'show');
+//    Route::delete('{id}', 'destroy');
+//});
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::apiResources([
+        'movies' => \App\Http\Controllers\Api\MovieController::class,
+        'categories' => \App\Http\Controllers\Api\CategoryController::class,
+    ]);
+});
